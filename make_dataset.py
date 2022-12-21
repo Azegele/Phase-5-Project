@@ -109,7 +109,7 @@ async def main():
         time.sleep(60)
 
 
-# Define a function to get the data from the Google Books API
+# Define second async function to get the data from the Google Books API
 async def get_data(session, isbn):
     """Function to get the data from the Google Books API"""
 
@@ -265,4 +265,4 @@ books.drop_duplicates(inplace=True)
 books
 
 # %% Export the combined DataFrame to a csv file
-books.to_csv("./data/books.csv", index=False)
+books.to_csv("./data/books.csv", index=False, encoding="latin-1")
