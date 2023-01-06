@@ -1,20 +1,35 @@
-# Rough Work (Notebook)
-test.ipynb
-notebook.ipynb
-Untitled.ipynb
+# -- Femi --
 
-# Data
-outsource
+## Folders
+corrections
+src
+
+## Data
 data/books_1.csv
 data/books_2.csv
 data/books_3.csv
 data/books_4.csv
 data/books_5.csv
-data/books_5_1.csv
-data/books_5_2.csv
-data/books_5_3.csv
-data/books_5_4.csv
 
-# Scripts
-src
-make_dataset_emmanuel.py
+## Notebooks
+other.ipynb
+
+## Scripts
+
+
+# -- Monicah --
+
+## Notebooks
+Untitled.ipynb
+
+
+# -- Belinda --
+
+
+# -- Bradley --
+
+## Notebooks
+notebook.ipynb
+
+
+# -- Emmanuel --
