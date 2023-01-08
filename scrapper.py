@@ -26,7 +26,12 @@ data = pd.DataFrame(
     ]
 )
 
+<<<<<<< Updated upstream:scrapper.py
 data.to_csv("./data/books_2.csv", index=True)
+=======
+## The following code has been commented out so that the data is not overwritten when the program is run again
+data.to_csv("./data/books_5_2.csv", index=True)
+>>>>>>> Stashed changes:make_dataset.py
 
 # %% Run the code
 
@@ -50,9 +55,14 @@ async def main():
 
     # Load the data
     books = pd.read_csv(
+<<<<<<< Updated upstream:scrapper.py
         "./data/BX-Books(50000-99999).csv",
         error_bad_lines=False,
         encoding="latin1"
+=======
+        "./data/books_5_2_bradley.csv",
+        encoding="latin1",
+>>>>>>> Stashed changes:make_dataset.py
         chunksize=40,
     )
 
@@ -83,8 +93,13 @@ async def main():
         print(f"Number of books: {len(api_data) * len(chunk)}")
 
         # Read the csv file, append the data from the API to the dataframe, and save the dataframe to the csv file
+<<<<<<< Updated upstream:scrapper.py
         pd.read_csv("./data/books_2.csv").append(api_data[index]).to_csv(
             "./data/books_2.csv", index=False
+=======
+        pd.read_csv("./data/books_5_2.csv").append(api_data[-1]).to_csv(
+            "./data/books_5_2.csv", index=False
+>>>>>>> Stashed changes:make_dataset.py
         )
 
         # Introduction of a sleep function of 1 minute (60 seconds) to avoid rate limit
@@ -229,4 +244,25 @@ async def get_data(session, isbn):
 
 
 # %% Run the main function
+<<<<<<< Updated upstream:scrapper.py
 await main()
+=======
+await main()
+
+# # %% Load the different csv files into pandas DataFrames (The program was run from 5 different computers to more efficiently extract the data from the API)
+# books_1 = pd.read_csv("./data/books_1.csv", encoding="latin-1")
+# books_2 = pd.read_csv("./data/books_2.csv", encoding="latin-1")
+# books_3 = pd.read_csv("./data/books_3.csv", encoding="latin-1")
+# books_4 = pd.read_csv("./data/books_4.csv", encoding="latin-1")
+# books_5 = pd.read_csv("./data/books_5.csv", encoding="latin-1")
+
+# # %% Concatenate the DataFrames into one dataframe on the rows
+# books = pd.concat([books_1, books_2, books_3, books_4, books_5], axis=0)
+
+# # Drop the duplicate rows
+# books.drop_duplicates(inplace=True)
+# books
+
+# # %% Export the combined DataFrame to a csv file
+# books.to_csv("./data/books.csv", index=False, encoding="latin-1")
+>>>>>>> Stashed changes:make_dataset.py
