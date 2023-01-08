@@ -9,7 +9,6 @@ import warnings  # Warnings module used to ignore warnings
 warnings.filterwarnings("ignore")
 pd.set_option("display.max_columns", None)
 
-
 # %% Create a new dataframe to store the data
 data = pd.DataFrame(
     columns=[
@@ -26,17 +25,15 @@ data = pd.DataFrame(
     ]
 )
 
-<<<<<<< Updated upstream:scrapper.py
-data.to_csv("./data/books_2.csv", index=True)
-=======
 ## The following code has been commented out so that the data is not overwritten when the program is run again
-data.to_csv("./data/books_5_2.csv", index=True)
->>>>>>> Stashed changes:make_dataset.py
+# data.to_csv("./data/books.csv", index=True)
 
-# %% Run the code
 
 # Define a function to return none if the input is empty
 def return_none(isbn):
+    """Function to return none if the isbn that is requested to the API is empty or does not exist"""
+
+    # Return a dictionary with the values set to None
     return {
         "authors": None,
         "published_date": None,
@@ -52,17 +49,14 @@ def return_none(isbn):
 
 # Define main async function to run the code
 async def main():
+    """Main async function to run the code"""
 
     # Load the data
     books = pd.read_csv(
-<<<<<<< Updated upstream:scrapper.py
-        "./data/BX-Books(50000-99999).csv",
+        "./data/BX-Books.csv",
+        sep=";",
         error_bad_lines=False,
-        encoding="latin1"
-=======
-        "./data/books_5_2_bradley.csv",
         encoding="latin1",
->>>>>>> Stashed changes:make_dataset.py
         chunksize=40,
     )
 
@@ -70,14 +64,28 @@ async def main():
     api_data = []
 
     # Loop through the chunks of data
-    for index, chunk in enumerate(books):
+    for index, chunk in enumerate(books, start=1):
+
+        # --- The following section was written so that the program can continue from where it left off if it is interrupted ---
+
+        # Read (or re-read) the csv file containing the extracted the book data from the API
+        books = pd.read_csv("data/books.csv")
+
+        # Get the total number of books that have been processed
+        total_books = books.shape[0]
+
+        # Check if the chunk has already been processed, if so, skip the chunk
+        if index < (total_books / 40):
+            continue
+
+        # --- End of section ---
 
         # Extract the ISBN numbers from the chunk
         isbns = chunk["ISBN"].tolist()
 
         # Open a session that will be used to send a request to the API
         async with aiohttp.ClientSession() as session:
-            
+
             # Initialize an empty list to store the tasks (requests) that will be sent to the API
             tasks = []
 
@@ -90,25 +98,21 @@ async def main():
             api_data.append(await asyncio.gather(*tasks))
 
         # Print the number of books that have been processed to the console to keep track of the progress
-        print(f"Number of books: {len(api_data) * len(chunk)}")
+        print(f"Number of books: {total_books + 40}")
 
         # Read the csv file, append the data from the API to the dataframe, and save the dataframe to the csv file
-<<<<<<< Updated upstream:scrapper.py
-        pd.read_csv("./data/books_2.csv").append(api_data[index]).to_csv(
-            "./data/books_2.csv", index=False
-=======
-        pd.read_csv("./data/books_5_2.csv").append(api_data[-1]).to_csv(
-            "./data/books_5_2.csv", index=False
->>>>>>> Stashed changes:make_dataset.py
+        pd.read_csv("./data/books.csv").append(api_data[-1]).to_csv(
+            "./data/books.csv", index=False
         )
 
         # Introduction of a sleep function of 1 minute (60 seconds) to avoid rate limit
         time.sleep(60)
 
 
-# Define a function to get the data from the Google Books API
+# Define second async function to get the data from the Google Books API
 async def get_data(session, isbn):
-    
+    """Function to get the data from the Google Books API"""
+
     # Define the url to send a request to
     url = f"https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}"
 
@@ -244,25 +248,21 @@ async def get_data(session, isbn):
 
 
 # %% Run the main function
-<<<<<<< Updated upstream:scrapper.py
-await main()
-=======
 await main()
 
-# # %% Load the different csv files into pandas DataFrames (The program was run from 5 different computers to more efficiently extract the data from the API)
-# books_1 = pd.read_csv("./data/books_1.csv", encoding="latin-1")
-# books_2 = pd.read_csv("./data/books_2.csv", encoding="latin-1")
-# books_3 = pd.read_csv("./data/books_3.csv", encoding="latin-1")
-# books_4 = pd.read_csv("./data/books_4.csv", encoding="latin-1")
-# books_5 = pd.read_csv("./data/books_5.csv", encoding="latin-1")
+# %% Load the different csv files into pandas DataFrames (The program was run from 5 different computers to more efficiently extract the data from the API)
+books_1 = pd.read_csv("./data/books_1.csv", encoding="latin-1")
+books_2 = pd.read_csv("./data/books_2.csv", encoding="latin-1")
+books_3 = pd.read_csv("./data/books_3.csv", encoding="latin-1")
+books_4 = pd.read_csv("./data/books_4.csv", encoding="latin-1")
+books_5 = pd.read_csv("./data/books_5.csv", encoding="latin-1")
 
-# # %% Concatenate the DataFrames into one dataframe on the rows
-# books = pd.concat([books_1, books_2, books_3, books_4, books_5], axis=0)
+# %% Concatenate the DataFrames into one dataframe on the rows
+books = pd.concat([books_1, books_2, books_3, books_4, books_5], axis=0)
 
-# # Drop the duplicate rows
-# books.drop_duplicates(inplace=True)
-# books
+# Drop the duplicate rows
+books.drop_duplicates(inplace=True)
+books
 
-# # %% Export the combined DataFrame to a csv file
-# books.to_csv("./data/books.csv", index=False, encoding="latin-1")
->>>>>>> Stashed changes:make_dataset.py
+# %% Export the combined DataFrame to a csv file
+books.to_csv("./data/books.csv", index=False, encoding="latin-1")
