@@ -42,6 +42,10 @@ with header:
         """Please follow the instructions below to use the ***Recommender***.\n\n>1. Select what you are searching for from the radio button options.\n>2. Enter the term you are searching for.\n>3. Select the number of books to display.\n>4. Click the **Recommend** button.\n\nThank you for using the recommender system!\n\nRegards,\n\n*The Librarians*"""
     )
 
+    expander.info(
+        "If you select the **Book** option, you will only have 5 books recommended."
+    )
+
     st.markdown("---")
 
 with body:
@@ -94,7 +98,12 @@ with body:
 
     if submit:
         if search_type == "Book":
-            pass
+
+            # Warn the user of the time
+            st.warning("This may take a few seconds...")
+
+            # Get the recommendations
+            output, recs = src.utils.hybrid_recommender(search_term)
 
         elif search_type == "Author":
             # Get the most popular books by the author
