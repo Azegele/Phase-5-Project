@@ -1,4 +1,4 @@
-# Library Book Recommendation System
+## Library Book Recommendation System
 
 ![my-image jpg](https://c1.thejournal.ie/media/2022/10/shutterstock_1491910001-2-752x501.jpg)
 
@@ -6,7 +6,7 @@
 ## 
 The main goal of this project is to develop a personalized library book recommendation system using various approaches and depolying it to ensure users spend less time to navigate through a huge collection of books based on different categories.
 
-## Procedure
+## Process Undertaken to implement the library book recommendation system.
 
 1. Business Understanding: Exploring the business reasons for our data mining effort and what the company hopes to gain from the project. This is done by attempting to come up with an information filtering technique that presents books according to user preferences to ensure increased library book circulation.
 
