@@ -13,19 +13,19 @@ The main goal of this project is to develop a personalized library book recommen
 
 ## Process Undertaken to implement the library book recommendation system.
 
-1. Business Understanding: Exploring the business reasons for our data mining effort and what the company hopes to gain from the project. This is done by attempting to come up with an information filtering technique that presents books according to user preferences to ensure increased library book circulation.
+- Business Understanding: Exploring the business reasons for our data mining effort and what the company hopes to gain from the project. This is done by attempting to come up with an information filtering technique that presents books according to user preferences to ensure increased library book circulation.
 
-2. Data Understanding: The datasets we utilized comprised of 4 datasets; Books.csv, Ratings.csv, User.csv, Books-extra.csv. 
+- Data Understanding: The datasets we utilized comprised of 4 datasets; Books.csv, Ratings.csv, User.csv, Books-extra.csv. 
 
-3. Data Preparation: It mainly involved; selecting the data to discover the columns to be used, cleaning the data to correct and remove erraneous values, formatting the data to effectively perform mathematical operations and integrating the datasets to create a merged dataset for effective analysis.
+- Data Preparation: It mainly involved; selecting the data to discover the columns to be used, cleaning the data to correct and remove erraneous values, formatting the data to effectively perform mathematical operations and integrating the datasets to create a merged dataset for effective analysis.
 
-4. Exploratory Data Analysis: The goal of this procedure is to summarise the main characteristics of the dataset, which is often done visually.  
+- Exploratory Data Analysis: The goal of this procedure is to summarise the main characteristics of the dataset, which is often done visually.  
 
-5. Modelling: To further support and provide insight we built various recommender systems; popularity-based system, item-based system, content-based system and hybrid system.
+- Modelling: To further support and provide insight we built various recommender systems; popularity-based system, item-based system, content-based system and hybrid system.
 
-6. Evaluation: Mean Absolute Error was used to measure the average of absolute deviance between actual and predicted ratings given by users.
+- Evaluation: Mean Absolute Error was used to measure the average of absolute deviance between actual and predicted ratings given by users.
 
-6. Recommendation and Conclusion: It mainly involved interpreting our project findings, offerring opinions based on the findings, proposing a solution to the gap discovered in the research that needs to be filled, and the next steps to be undertaken in future analysis.
+- Recommendation and Conclusion: It mainly involved interpreting our project findings, offerring opinions based on the findings, proposing a solution to the gap discovered in the research that needs to be filled, and the next steps to be undertaken in future analysis.
 
 ## 🔗 Badges
 
