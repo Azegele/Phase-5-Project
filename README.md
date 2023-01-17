@@ -6,6 +6,11 @@
 ## 
 The main goal of this project is to develop a personalized library book recommendation system using various approaches and depolying it to ensure users spend less time to navigate through a huge collection of books based on different categories.
 
+## Business Objectives 
+> Apply Natural Langauge Preprocessing on book description for implementation in the system.
+> Develop a library book recommendation system using different approaches.
+> Deploy the recommendation system using Streamlit.
+
 ## Process Undertaken to implement the library book recommendation system.
 
 1. Business Understanding: Exploring the business reasons for our data mining effort and what the company hopes to gain from the project. This is done by attempting to come up with an information filtering technique that presents books according to user preferences to ensure increased library book circulation.
