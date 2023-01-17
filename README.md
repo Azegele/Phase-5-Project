@@ -10,16 +10,18 @@
 
 ## Table Of Contents
 
-- [Business Objectives](#business-objectives)
-- [Project Overview](#project-overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributors](#contributors)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
-    - [Institution](#institution)
-    - [Technologies Used](#technologies-used)
-    - [Data Sources](#data-sources)
+- [Library Book Recommendation System](#library-book-recommendation-system)
+  - [Table Of Contents](#table-of-contents)
+    - [Business Objectives](#business-objectives)
+    - [Project Overview](#project-overview)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Contributors](#contributors)
+    - [License](#license)
+    - [Acknowledgements](#acknowledgements)
+      - [Institution](#institution)
+      - [Technologies Used](#technologies-used)
+      - [Data Sources](#data-sources)
 
 ---
 
@@ -91,15 +93,17 @@
 >
 > The following people have contributed to this project:
 
-- [Monicah Iwagit]()
-- [Belinda Nyamai]()
-- [Bradley Azegele]()
+- [Monicah Iwagit](https://github.com/Okodoimonicah)
+- [Belinda Nyamai](https://github.com/4Belinda)
+- [Bradley Azegele](https://github.com/Azegele)
 - [Emmanuel Kipkorir]()
-- [Femi Kamau]()
+- [Femi Kamau](https://github.com/ctrl-Karugu)
 
 ---
 
 ### [License](#license)
+
+> This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ---
 
